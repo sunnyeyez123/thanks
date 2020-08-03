@@ -26,7 +26,7 @@
     <div class="container-fluid">
   <p><button name="button" onclick="window.open('https://forms.gle/A8oPMNc4kJKKskCt5')" class="btn btn-primary"> Add Thanks  </button></p>
 
-<table id="thanksTable" cellspacing="0" cellpadding="0">
+<table id="thanksTable" class="table" cellspacing="0" cellpadding="0">
     <tr>
       <th>Date</th>
       <th>Thankee</th>
@@ -37,7 +37,7 @@
 </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script>
 var JSONURL = 'https://spreadsheets.google.com/feeds/list/1ApBKLG-4pEelqCHZIkl4reH4OLpgliKhnILWnGm1Q24/1/public/basic?alt=json';
@@ -82,7 +82,6 @@ $(document).ready(function(){
 </script>
 
     <!-- Additional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
