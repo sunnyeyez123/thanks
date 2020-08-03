@@ -6,7 +6,7 @@ Thanks is a page where Igor and I can log a view messages of graditude we've lef
 [Add Thanks](https://forms.gle/A8oPMNc4kJKKskCt5)
 
 
-<button name="button" onclick="window.location.href('http://stackoverflow.com')">Open Thanks Form</button>
+<button name="button" onclick="window.open('http://stackoverflow.com')">Open Thanks Form</button>
 
 
 
