@@ -2,6 +2,7 @@
 
 Thanks is a page where Igor and Jasmine can log and view messages of graditude they've left for each other.
 
+<style>
 
 <a href="#" class="myButton">green</a>
 
@@ -29,6 +30,7 @@ Thanks is a page where Igor and Jasmine can log and view messages of graditude t
 	position:relative;
 	top:1px;
 }
+</style>
 
 <button name="button" onclick="window.open('https://forms.gle/A8oPMNc4kJKKskCt5')">Add Thanks</button>
 
