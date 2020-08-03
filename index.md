@@ -46,7 +46,7 @@ Thanks is a page where Igor and Jasmine can log and view messages of graditude t
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script>
-var JSONURL = 'https://spreadsheets.google.com/feeds/list/1iw-Evbc7GJPtSG-NmgWxT6iuaP2dG98LLOiJUAEdT7Y/1/public/basic?alt=json';
+var JSONURL = 'https://spreadsheets.google.com/feeds/list/1ApBKLG-4pEelqCHZIkl4reH4OLpgliKhnILWnGm1Q24/1/public/basic?alt=json';
 
 function callback(data){
     var cells = data.feed.entry;
