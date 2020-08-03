@@ -34,10 +34,10 @@ Thanks is a page where Igor and Jasmine can log and view messages of graditude t
 
 <table id="thanksTable" cellspacing="0" cellpadding="0">
     <tr>
-      <th>Timestamp</th>
-      <th>Who do you want to thank?</th>
+      <th>Date</th>
+      <th>Thankee</th>
       <th>What are you thankful for?</th>
-      <th>Who are you?</th>
+      <th>Thanker</th>
     </tr>
 </table>
 
