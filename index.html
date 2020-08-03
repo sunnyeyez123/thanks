@@ -1,50 +1,53 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Thanks!</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+  <title>Thanks!</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 
-  </head>
-  <body>
-    
+</head>
+<body>
+  
  <div class="container-fluid bg-primary text-center text-white py-5 mb-2" id="header">
 
   <h1 >Welcome to Thanks</h1> 
 
   <p>Thanks is a page where Igor and Jasmine can log and view messages of graditude they’ve left for each other.</p>
-   
+  
+  <img src="https://i.imgur.com/ai9B3d9b.jpg?1" class="img-fluid" alt="Responsive image">
+
+  
 </div>
-    
-    <div class="container-fluid">
+
+<div class="container-fluid">
   <p><button name="button" onclick="window.open('https://forms.gle/A8oPMNc4kJKKskCt5')" class="btn btn-primary"> Add Thanks  </button></p>
 
-<table id="thanksTable" class="table" >
+  <table id="thanksTable" class="table" >
     <thead class="thead-light">
       
-    <tr>
-      <th>Date</th>
-      <th>Thankee</th>
-      <th>What are you thankful for?</th>
-      <th>Thanker</th>
-    </tr>
+      <tr>
+        <th>Date</th>
+        <th>Thankee</th>
+        <th>What are you thankful for?</th>
+        <th>Thanker</th>
+      </tr>
     </thead>
-</table>
+  </table>
 </div>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script>
-var JSONURL = 'https://spreadsheets.google.com/feeds/list/1ApBKLG-4pEelqCHZIkl4reH4OLpgliKhnILWnGm1Q24/1/public/basic?alt=json';
+  var JSONURL = 'https://spreadsheets.google.com/feeds/list/1ApBKLG-4pEelqCHZIkl4reH4OLpgliKhnILWnGm1Q24/1/public/basic?alt=json';
 
-function callback(data){
+  function callback(data){
     var rows = [];
 
     var cells = data.feed.entry;
@@ -61,30 +64,30 @@ function callback(data){
     rows.sort(function (a, b) { return a.timestamp > b.timestamp ? -1 : a.timestamp == b.timestamp ? 0 : 1 });
     for (var i = 0; i < rows.length; i++) {
       var row = '<tr>' +
-                    '<td>'+rows[i].timestamp+'</td>' +
-                    '<td>'+rows[i].whodoyouwanttothank+'</td>' +
-                    '<td>'+rows[i].whatareyouthankfulfor +'</td>' + 
-                    '<td>'+rows[i].whoareyou +'</td>' + 
-                 '</tr>';
+      '<td>'+rows[i].timestamp+'</td>' +
+      '<td>'+rows[i].whodoyouwanttothank+'</td>' +
+      '<td>'+rows[i].whatareyouthankfulfor +'</td>' + 
+      '<td>'+rows[i].whoareyou +'</td>' + 
+      '</tr>';
       $('#thanksTable').append(row);
     }
-}
+  }
 
-$(document).ready(function(){
+  $(document).ready(function(){
     
     $.ajax({
-        url:JSONURL,
-        success: function(data){
-            callback(data);
-        }
+      url:JSONURL,
+      success: function(data){
+        callback(data);
+      }
     });
 
-});
+  });
 
 </script>
 
-    <!-- Additional JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+<!-- Additional JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
 </html>
