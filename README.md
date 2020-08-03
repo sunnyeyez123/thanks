@@ -1,2 +1,3 @@
-# thanks
-website to put thanks from Igor &amp; Jasmine
+# Thanks
+An attitude of gratitude from Igor &amp; Jasmine
+
