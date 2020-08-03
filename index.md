@@ -6,3 +6,7 @@ Thanks is a page where Igor and I can log a view messages of graditude we've lef
 [Add Thanks](https://forms.gle/A8oPMNc4kJKKskCt5)
 
 
+<button name="button" onclick="http://www.google.com">Click me</button>
+
+
+
