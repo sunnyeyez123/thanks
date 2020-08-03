@@ -32,7 +32,7 @@ Thanks is a page where Igor and Jasmine can log and view messages of graditude t
 
 <button name="button" onclick="window.open('https://forms.gle/A8oPMNc4kJKKskCt5')">Add Thanks</button>
 
-<table id="thanksTable">
+<table id="thanksTable" cellspacing="0" cellpadding="0">
     <tr>
       <th>Timestamp</th>
       <th>Who do you want to thank?</th>
