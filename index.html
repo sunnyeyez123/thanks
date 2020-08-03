@@ -56,8 +56,9 @@
 var JSONURL = 'https://spreadsheets.google.com/feeds/list/1ApBKLG-4pEelqCHZIkl4reH4OLpgliKhnILWnGm1Q24/1/public/basic?alt=json';
 
 function callback(data){
-    var cells = data.feed.entry;
+    var rows = [];
 
+    var cells = data.feed.entry;
     for (var i = 0; i < cells.length; i++){;
       var rowObj = {};
       rowObj.timestamp = cells[i].title.$t;
@@ -66,12 +67,16 @@ function callback(data){
         var keyVal = rowCols[j].split(':');
         rowObj[keyVal[0].trim()] = keyVal[1].trim();
       }
-      var row = '<tr>' +
-      		  '<td>'+rowObj.timestamp+'</td>' +
-                  '<td>'+rowObj.whodoyouwanttothank+'</td>' +
-                  '<td>'+rowObj.whatareyouthankfulfor +'</td>' + 
-                  '<td>'+rowObj.whoareyou +'</td>' + 
-                '</tr>';
+      rows.push(rowObj);
+    }
+    rows.sort(function (a, b) { return a.timestamp > b.timestamp ? -1 : a.timestamp == b.timestamp ? 0 : 1 });
+    for (var i = 0; i < rows.length; i++) {
+    	var row = '<tr>' +
+      	            '<td>'+rows[i].timestamp+'</td>' +
+                    '<td>'+rows[i].whodoyouwanttothank+'</td>' +
+                    '<td>'+rows[i].whatareyouthankfulfor +'</td>' + 
+                    '<td>'+rows[i].whoareyou +'</td>' + 
+                 '</tr>';
     	$('#thanksTable').append(row);
     }
 }
