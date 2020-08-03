@@ -34,9 +34,10 @@ Thanks is a page where Igor and Jasmine can log and view messages of graditude t
 
 <table id="thanksTable">
     <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Thanks</th>
+      <th>Timestamp</th>
+      <th>Who do you want to thank?</th>
+      <th>What are you thankful for?</th>
+      <th>Who are you?</th>
     </tr>
 </table>
 
@@ -48,17 +49,20 @@ var JSONURL = 'https://spreadsheets.google.com/feeds/list/1iw-Evbc7GJPtSG-NmgWxT
 function callback(data){
     var cells = data.feed.entry;
 
-    for (var i = 0; i < cells.length; i++){
+    for (var i = 0; i < cells.length; i++){;
       var rowObj = {};
-      rowObj.name = cells[i].title.$t;
+      rowObj.timestamp = cells[i].title.$t;
       var rowCols = cells[i].content.$t.split(',');
       for (var j = 0; j < rowCols.length; j++){
         var keyVal = rowCols[j].split(':');
         rowObj[keyVal[0].trim()] = keyVal[1].trim();
       }
-      var row = '<tr><td>'+rowObj.name+'</td>' +
-                 '<td>'+rowObj.date+'</td>' +
-                 '<td>'+rowObj.thanks +'</td></tr>';
+      var row = '<tr>' +
+      		  '<td>'+rowObj.timestamp+'</td>' +
+                  '<td>'+rowObj.whodoyouwanttothank+'</td>' +
+                  '<td>'+rowObj.whatareyouthankfulfor +'</td>' + 
+                  '<td>'+rowObj.whoareyou +'</td>' + 
+                '</tr>';
     	$('#thanksTable').append(row);
     }
 }
