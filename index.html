@@ -26,8 +26,22 @@
 </div>
 
 <div class="container-fluid">
-  <p><button name="button" onclick="window.open('https://forms.gle/A8oPMNc4kJKKskCt5')" class="btn btn-primary"> Add Thanks  </button></p>
+  <button name="button" onclick="window.open('https://forms.gle/A8oPMNc4kJKKskCt5')" class="btn btn-primary"> Add Thanks  </button>
 
+    <!-- Drop down filter -->
+<div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle float-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">All</a>
+    <a class="dropdown-item" href="#">Igor Only</a>
+    <a class="dropdown-item" href="#">Jasmine Only</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Surprise me</a>
+  </div>
+</div>
+  
   <table id="thanksTable" class="table" >
     <thead class="thead-light">
       
