@@ -80,7 +80,7 @@
     var cells = data.feed.entry;
     for (var i = 0; i < cells.length; i++){;
       var rowObj = {};
-      rowObj.timestamp = cells[i].title.$t;
+      rowObj.timestamp = Date.parse(cells[i].title.$t);
       var rowCols = cells[i].content.$t.split(',');
       for (var j = 0; j < rowCols.length; j++){
         var keyVal = rowCols[j].split(':');
@@ -94,7 +94,7 @@
         continue;
       }
       var row = '<tr>' +
-      '<td>'+rows[i].timestamp+'</td>' +
+      '<td>'+rows[i].timestamp.toLocaleString()+'</td>' +
       '<td>'+rows[i].whodoyouwanttothank+'</td>' +
       '<td>'+rows[i].whatareyouthankfulfor +'</td>' + 
       '<td>'+rows[i].whoareyou +'</td>' + 
