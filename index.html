@@ -34,11 +34,11 @@
     Filter
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">All</a>
-    <a class="dropdown-item" href="#">Igor Only</a>
-    <a class="dropdown-item" href="#">Jasmine Only</a>
+    <a class="dropdown-item" href="#" onclick="RefreshAndFilterFor('All')">All</a>
+    <a class="dropdown-item" href="#" onclick="RefreshAndFilterFor('Igor')">Igor Only</a>
+    <a class="dropdown-item" href="#" onclick="RefreshAndFilterFor('Jasmine')">Jasmine Only</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Surprise me</a>
+    <a class="dropdown-item" href="#" onclick="RefreshAndFilterFor('Surprise')">Surprise me</a>
   </div>
 </div>
   
@@ -60,6 +60,19 @@
 
 <script>
   var JSONURL = 'https://spreadsheets.google.com/feeds/list/1ApBKLG-4pEelqCHZIkl4reH4OLpgliKhnILWnGm1Q24/1/public/basic?alt=json';
+  
+  var filter = 'All';
+  let searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.has('filter')) {
+    filter = searchParams.get('filter');
+    if (filter == 'Surprise') {
+      if (Math.random() > 0.5) {
+        filter = 'Jasmine';
+      } else {
+        filter = 'Igor';
+      }
+    }
+  }  
 
   function callback(data){
     var rows = [];
@@ -77,6 +90,9 @@
     }
     rows.sort(function (a, b) { return a.timestamp > b.timestamp ? -1 : a.timestamp == b.timestamp ? 0 : 1 });
     for (var i = 0; i < rows.length; i++) {
+      if (filter != 'All' && filter != rows[i].whodoyouwanttothank) {
+        continue;
+      }
       var row = '<tr>' +
       '<td>'+rows[i].timestamp+'</td>' +
       '<td>'+rows[i].whodoyouwanttothank+'</td>' +
@@ -97,6 +113,12 @@
     });
 
   });
+  
+  function RefreshAndFilterFor(filterValue) {
+    var newUrl = window.location.origin + window.location.pathname + "?filter=" + filterValue;
+    window.location.href = newUrl;
+    return false;
+  }  
 
 </script>
 
