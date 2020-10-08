@@ -83,7 +83,7 @@
     var rows = [];
 
     var cells = data.feed.entry;
-    for (var i = 0; i < cells.length; i++){;
+    for (var i = 0; i < cells.length; i++){
       var rowObj = {};
       rowObj.timestamp = new Date(cells[i].title.$t);
       var rowCols = cells[i].content.$t.split(',');
